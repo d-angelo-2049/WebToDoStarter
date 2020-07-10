@@ -14,7 +14,6 @@ before_install:
   - sdk install gradle 6.4.1 # gradle version 4.2.1 以降を使う
   - sdk default gradle 6.4.1
 
-
 addons:
   sonarcloud:
     organization: "chandai-hardcoregeek"
