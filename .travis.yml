@@ -1,0 +1,30 @@
+language: java
+
+sudo: required
+dist: trusty
+
+jdk:
+  - openjdk14
+
+
+before_install:
+  - curl -s api.sdkman.io | bash
+  - source /home/travis/.sdkman/bin/sdkman-init.sh # ターミナル上での表示結果
+  - sdk list gradle
+  - sdk install gradle 6.4.1 # gradle version 4.2.1 以降を使う
+  - sdk default gradle 6.4.1
+
+addons:
+  sonarcloud:
+    organization: "chandai-hardcoregeek"
+    token: $SONAR_TOKEN
+script:
+  - gradle sonarqube -Dsonar.login=$SONAR_TOKEN
+#  - -Dsonar.coverage.exclusions=WebToDoStarter/src/*
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+    - '$HOME/.gradle'
+    - '.gradle'
