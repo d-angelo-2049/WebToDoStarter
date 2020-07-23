@@ -8,14 +8,14 @@ import com.example.demo.entity.Task;
 
 public interface TaskService {
 
-	List<Task> findAll();
-	
-	Optional<Task> getTask(int id);
+  List<Task> findAll();
 
-	void insert(Task task);
-	
-	void update(Task task);
-	
-	void deleteById(int id);
+  Optional<Task> getTask(int id);
+
+  void insert(Task task);
+
+  void update(Task task);
+
+  void deleteById(int id);
 
 }
